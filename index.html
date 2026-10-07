@@ -21,8 +21,7 @@ nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:60;he
 nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:15px;font-weight:600;letter-spacing:-.01em;cursor:pointer;user-select:none}
 .links{display:flex;gap:30px;font-size:13px;color:var(--dim)}.links a{transition:color .3s}.links a:hover{color:var(--ink)}
-.tc{font:500 12px ui-monospace,Menlo,monospace;color:var(--dim);cursor:pointer;user-select:none;display:flex;align-items:center;gap:8px}
-.tc i{width:6px;height:6px;border-radius:50%;background:var(--rec);animation:b 1.4s infinite}@keyframes b{50%{opacity:.15}}
+@keyframes b{50%{opacity:.15}}
 
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 0 70px;position:relative;
   background:radial-gradient(900px circle at var(--mx,70%) var(--my,30%),var(--glow),transparent 60%)}
@@ -172,12 +171,11 @@ body.hc,body.hc *{cursor:none!important}
 /* ===== mobile & touch layer ===== */
 body{-webkit-tap-highlight-color:transparent}
 h1{-webkit-touch-callout:none}
-nav .tc,.burger,#menu,#dock,#rail,.strip.rev{display:none}
+.burger,#menu,#dock,#rail,.strip.rev{display:none}
 .rip{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:rgba(255,255,255,.4);pointer-events:none;z-index:1;animation:rip .9s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes rip{to{transform:scale(46);opacity:0}}
 @keyframes pop{from{opacity:0;transform:translateY(24px) scale(.9)}}
 @media(max-width:780px){
-  nav .tc{display:flex}
   .burger{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px;width:44px;height:44px;margin-right:-8px;background:none;border:0;cursor:pointer}
   .burger i{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .5s cubic-bezier(.16,1,.3,1),width .5s cubic-bezier(.16,1,.3,1)}
   .burger i:nth-child(1){width:22px}.burger i:nth-child(2){width:14px}
@@ -248,7 +246,6 @@ body.vhs h1,body.vhs .cap,body.vhs h2{text-shadow:2px 0 rgba(255,40,70,.6),-2px 
 <body>
 <nav><div class="wrap">
   <div class="logo" id="logo">Rudra</div>
-  <div class="tc" id="tc"><i></i><span>00:00:00:00</span></div>
   <div class="links"><a href="#work">Work</a><a href="#craft">Craft</a><a href="#contact">Contact</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
 </div></nav>
@@ -416,15 +413,12 @@ burger.onclick=()=>menuSet(!document.body.classList.contains('mo'));
 menu.addEventListener('click',e=>{if(e.target.closest('a'))menuSet(false)});
 addEventListener('keydown',e=>{if(e.key==='Escape')menuSet(false)});
 mobile.addEventListener('change',e=>{if(!e.matches)menuSet(false)});
-$('#tc').onclick=()=>{scrollTo({top:0,behavior:'smooth'});say('Rewind ⏮')};
 
-// timecode, playhead rail, dock, scroll-linked frame tilt
-const tcs=$('#tc span'),rail=$('#rail'),dock=$('#dock'),ctc=$('#contact');
+// playhead rail, dock, scroll-linked frame tilt
+const rail=$('#rail'),dock=$('#dock'),ctc=$('#contact');
 let tick=false;
 function mscroll(){tick=false;const y=scrollY,m=document.documentElement.scrollHeight-innerHeight,p=m>0?Math.min(1,Math.max(0,y/m)):0;
   rail.style.setProperty('--p',p);
-  const f=Math.round(p*1440),z=n=>String(n).padStart(2,'0');
-  tcs.textContent='00:'+z(Math.floor(f/1440))+':'+z(Math.floor(f/24)%60)+':'+z(f%24);
   dock.classList.toggle('show',y>innerHeight*.8&&ctc.getBoundingClientRect().top>innerHeight*.55);
   if(!fine&&!calm)frames.forEach(fr=>{const r=fr.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const c=Math.max(-1,Math.min(1,(r.top+r.height/2-innerHeight/2)/(innerHeight/2+r.height/2)));fr.style.setProperty('--py',c*1.8);fr.style.setProperty('--px',c*.8);fr.style.setProperty('--rx',(c*-3)+'deg')})}
 addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(mscroll)}},{passive:true});mscroll();
