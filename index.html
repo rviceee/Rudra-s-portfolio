@@ -250,6 +250,21 @@ body.vhs h1,body.vhs .cap,body.vhs h2{text-shadow:2px 0 rgba(255,40,70,.6),-2px 
 @keyframes clap{to{transform:rotate(0)}}
 #clap .board{display:grid;gap:6px;padding:20px;background:#111;color:#f5f5f7;border:2px solid #f5f5f7;border-top:0;border-radius:0 0 10px 10px;font-size:24px}
 #clap small{font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.14em;opacity:.6}
+
+/* ===== top spotlight video ===== */
+.spot{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:26px;align-items:center;max-width:740px;margin-bottom:70px;padding:14px;border-radius:24px;background:color-mix(in srgb,var(--ink) 5%,transparent);border:1px solid var(--line);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:transform .6s cubic-bezier(.16,1,.3,1),border-color .4s;}
+.spot:hover{transform:translateY(-4px);border-color:var(--dim)}
+.spot .th{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--frame)}
+.spot .th img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.spot:hover .th img{transform:scale(1.07)}
+.spot .pl{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.4)}
+.spot .pl::before{content:"";position:absolute;left:21px;top:16px;border-left:16px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.spot .bd{display:flex;align-items:center;gap:10px;font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--rec)}
+.spot .bd i{width:6px;height:6px;border-radius:50%;background:var(--rec);animation:b 1.4s infinite}
+.spot .vw{display:block;margin-top:12px;font-size:clamp(38px,5.4vw,64px);font-weight:600;letter-spacing:-.05em;line-height:1}
+.spot .vl{display:block;margin-top:8px;font-size:16px;color:var(--dim);letter-spacing:-.01em}
+.spot .vl u{text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px}
+@media(max-width:780px){.spot{grid-template-columns:1fr;gap:16px;margin-bottom:30px}}
 </style>
 </head>
 <body>
@@ -272,6 +287,19 @@ body.vhs h1,body.vhs .cap,body.vhs h2{text-shadow:2px 0 rgba(255,40,70,.6),-2px 
 <div class="strip"><div><span>Veo 3</span><span>Kling</span><span>Hinglish scripts</span><span>Real estate films</span><span>Reels &amp; Shorts</span><span>AI documentary</span><span>Talking-face ads</span><span>Colour &amp; sound</span><span>Veo 3</span><span>Kling</span><span>Hinglish scripts</span><span>Real estate films</span><span>Reels &amp; Shorts</span><span>AI documentary</span><span>Talking-face ads</span><span>Colour &amp; sound</span></div></div>
 
 <section id="work"><div class="wrap">
+<div class="rv">
+  <a class="spot" href="https://youtu.be/lo8fBNgnqSk?si=8zjU_4ktOPzNQrJz" target="_blank" rel="noopener">
+    <div class="th">
+      <img src="https://i.ytimg.com/vi/lo8fBNgnqSk/maxresdefault.jpg" alt="Most reached video thumbnail" loading="eager" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/lo8fBNgnqSk/hqdefault.jpg'">
+      <span class="pl"></span>
+    </div>
+    <div>
+      <div class="bd"><i></i>Most reached video of all time</div>
+      <b class="vw" id="ytViews">65,000+ views</b>
+      <span class="vl">Watch it on <u>YouTube ↗</u></span>
+    </div>
+  </a>
+</div>
   <div class="eyebrow rv">Selected work</div>
   <h2 class="rv">Four disciplines. One standard.</h2>
   <div class="work">
@@ -290,7 +318,7 @@ body.vhs h1,body.vhs .cap,body.vhs h2{text-shadow:2px 0 rgba(255,40,70,.6),-2px 
     <article class="proj rv" style="--h:#d46cff">
       <div class="frame"><svg class="art" viewBox="0 0 1260 540" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="s2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d0a1c"/><stop offset="1" stop-color="#2a1458"/></linearGradient><radialGradient id="g2"><stop offset="0" stop-color="#8a5cff" stop-opacity=".45"/><stop offset="1" stop-color="#8a5cff" stop-opacity="0"/></radialGradient><linearGradient id="w2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e5d3ff"/><stop offset="1" stop-color="#8a5cff"/></linearGradient><linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".7"/><stop offset=".55" stop-color="#000" stop-opacity="0"/></linearGradient><radialGradient id="vg" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient></defs><rect width="1260" height="540" fill="url(#s2)"/><ellipse cx="560" cy="300" rx="260" ry="260" fill="url(#g2)"/>
 <path d="M360 540 C360 430 450 410 560 410 C670 410 760 430 760 540Z" fill="#150f2b"/><path d="M360 540 C360 430 450 410 560 410" fill="none" stroke="#c9a6ff" stroke-opacity=".5" stroke-width="2"/>
-<rect x="528" y="360" width="64" height="70" fill="#150f2b"/><ellipse cx="560" cy="270" rx="86" ry="104" fill="#1b1336"/><path d="M474 270 C474 190 520 164 560 164" fill="none" stroke="#d9c2ff" stroke-opacity=".7" stroke-width="2.5"/><rect x="760" y="255" width="6" height="30" rx="3" fill="url(#w2)" opacity="0.47"/><rect x="782" y="251" width="6" height="39" rx="3" fill="url(#w2)" opacity="0.50"/><rect x="804" y="219" width="6" height="102" rx="3" fill="url(#w2)" opacity="0.74"/><rect x="826" y="249" width="6" height="41" rx="3" fill="url(#w2)" opacity="0.51"/><rect x="848" y="207" width="6" height="127" rx="3" fill="url(#w2)" opacity="0.84"/><rect x="870" y="220" width="6" height="99" rx="3" fill="url(#w2)" opacity="0.73"/><rect x="892" y="250" width="6" height="41" rx="3" fill="url(#w2)" opacity="0.51"/><rect x="914" y="216" width="6" height="109" rx="3" fill="url(#w2)" opacity="0.77"/><rect x="936" y="253" width="6" height="34" rx="3" fill="url(#w2)" opacity="0.48"/><rect x="958" y="242" width="6" height="57" rx="3" fill="url(#w2)" opacity="0.57"/><rect x="980" y="255" width="6" height="30" rx="3" fill="url(#w2)" opacity="0.47"/><rect x="1002" y="252" width="6" height="35" rx="3" fill="url(#w2)" opacity="0.48"/><rect x="1024" y="232" width="6" height="76" rx="3" fill="url(#w2)" opacity="0.64"/><rect x="1046" y="192" width="6" height="155" rx="3" fill="url(#w2)" opacity="0.95"/><rect x="1068" y="244" width="6" height="52" rx="3" fill="url(#w2)" opacity="0.55"/><rect x="1090" y="234" width="6" height="72" rx="3" fill="url(#w2)" opacity="0.63"/><rect x="1112" y="198" width="6" height="144" rx="3" fill="url(#w2)" opacity="0.91"/><rect x="1134" y="181" width="6" height="179" rx="3" fill="url(#w2)" opacity="1.04"/><rect x="1156" y="221" width="6" height="97" rx="3" fill="url(#w2)" opacity="0.72"/><rect x="1178" y="242" width="6" height="56" rx="3" fill="url(#w2)" opacity="0.56"/><rect x="1200" y="252" width="6" height="36" rx="3" fill="url(#w2)" opacity="0.49"/><rect x="1222" y="254" width="6" height="32" rx="3" fill="url(#w2)" opacity="0.47"/><rect width="1260" height="540" fill="url(#sh)"/><rect width="1260" height="540" fill="url(#vg)"/></svg><div class="hud"><i></i><span>AI</span></div><div class="num">02</div><div class="cap">AI Talking Face</div></div>
+<rect x="528" y="360" width="64" height="70" fill="#150f2b"/><ellipse cx="560" cy="270" rx="86" ry="104" fill="#1b1336"/><path d="M474 270 C474 190 520 164 560 164" fill="none" stroke="#d9c2ff" stroke-opacity=".7" stroke-width="2.5"/><rect x="760" y="255" width="6" height="30" rx="3" fill="url(#w2)" opacity="0.47"/><rect x="782" y="251" width="6" height="39" rx="3" fill="url(#w2)" opacity="0.5"/><rect x="804" y="219" width="6" height="102" rx="3" fill="url(#w2)" opacity="0.74"/><rect x="826" y="249" width="6" height="41" rx="3" fill="url(#w2)" opacity="0.51"/><rect x="848" y="207" width="6" height="127" rx="3" fill="url(#w2)" opacity="0.84"/><rect x="870" y="220" width="6" height="99" rx="3" fill="url(#w2)" opacity="0.73"/><rect x="892" y="250" width="6" height="41" rx="3" fill="url(#w2)" opacity="0.51"/><rect x="914" y="216" width="6" height="109" rx="3" fill="url(#w2)" opacity="0.77"/><rect x="936" y="253" width="6" height="34" rx="3" fill="url(#w2)" opacity="0.48"/><rect x="958" y="242" width="6" height="57" rx="3" fill="url(#w2)" opacity="0.57"/><rect x="980" y="255" width="6" height="30" rx="3" fill="url(#w2)" opacity="0.47"/><rect x="1002" y="252" width="6" height="35" rx="3" fill="url(#w2)" opacity="0.48"/><rect x="1024" y="232" width="6" height="76" rx="3" fill="url(#w2)" opacity="0.64"/><rect x="1046" y="192" width="6" height="155" rx="3" fill="url(#w2)" opacity="0.95"/><rect x="1068" y="244" width="6" height="52" rx="3" fill="url(#w2)" opacity="0.55"/><rect x="1090" y="234" width="6" height="72" rx="3" fill="url(#w2)" opacity="0.63"/><rect x="1112" y="198" width="6" height="144" rx="3" fill="url(#w2)" opacity="0.91"/><rect x="1134" y="181" width="6" height="179" rx="3" fill="url(#w2)" opacity="1.04"/><rect x="1156" y="221" width="6" height="97" rx="3" fill="url(#w2)" opacity="0.72"/><rect x="1178" y="242" width="6" height="56" rx="3" fill="url(#w2)" opacity="0.56"/><rect x="1200" y="252" width="6" height="36" rx="3" fill="url(#w2)" opacity="0.49"/><rect x="1222" y="254" width="6" height="32" rx="3" fill="url(#w2)" opacity="0.47"/><rect width="1260" height="540" fill="url(#sh)"/><rect width="1260" height="540" fill="url(#vg)"/></svg><div class="hud"><i></i><span>AI</span></div><div class="num">02</div><div class="cap">AI Talking Face</div></div>
       <div class="meta"><p>AI-generated talking-face content, built for brand and product marketing.</p>
         <div class="go"><a href="https://www.instagram.com/reel/Db2-ew0lal8/" target="_blank" rel="noopener">Reel 01 ↗</a><a href="https://www.instagram.com/reel/DaPdHres5c6/" target="_blank" rel="noopener">Reel 02 ↗</a></div></div>
     </article>
@@ -448,6 +476,13 @@ frames.forEach(f=>{
 // swipe right on a project page to go back
 {let sx=0,sy=0;D.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY},{passive:true});
   D.addEventListener('touchend',e=>{const t=e.changedTouches[0];if(sx>24&&t.clientX-sx>110&&Math.abs(t.clientY-sy)<45){vib(8);location.hash='work'}},{passive:true})}
+
+// ===== live YouTube view count =====
+// Paste a free YouTube Data API v3 key below (Google Cloud Console -> enable "YouTube Data API v3").
+const YT_ID='lo8fBNgnqSk',YT_KEY='';
+if(YT_KEY){fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${YT_ID}&key=${YT_KEY}`).then(r=>r.json()).then(d=>{
+  const v=+d.items[0].statistics.viewCount;if(!v)return;
+  $('#ytViews').textContent=new Intl.NumberFormat('en',{notation:'compact',maximumFractionDigits:1}).format(v)+' views'}).catch(()=>{})}
 
 // ===== more easter eggs (no hints on purpose) =====
 const FOUND=new Set();
