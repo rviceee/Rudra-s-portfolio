@@ -201,6 +201,7 @@ h1{font-size:clamp(50px,6.6vw,104px)}
 }
 #dock,#dock a{touch-action:manipulation;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;user-select:none}
 #dock{z-index:250;isolation:isolate}#dock a{position:relative;z-index:1}#dock a svg,#dock a span{pointer-events:none}
+@media(min-width:861px){#gl{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -251,7 +252,7 @@ h1{font-size:clamp(50px,6.6vw,104px)}
 </div></section>
 
 <section id="long"><div class="wrap">
-  <div class="hd rv"><div><div class="eb">Long-form</div><h2>Films that hold <em>attention.</em></h2></div><span class="meta">AI documentaries &amp; real estate films</span></div>
+  <div class="hd rv"><div><div class="eb">Long-form</div><h2>Films that hold <em>attention.</em></h2></div><span class="meta">AI documentaries, real estate films &amp; vlogs</span></div>
   <div class="grid" id="gl"></div>
 </div></section>
 
@@ -314,6 +315,7 @@ const W=[
 ['AI','AI Documentary','Watch','https://youtu.be/f6tYqUfLpWs','f6tYqUfLpWs'],
 ['Real estate','Real Estate Film 01','Watch','https://youtu.be/0rHeCTVd7Nc','0rHeCTVd7Nc'],
 ['Real estate','Real Estate Film 02','Watch','https://youtu.be/Uga0IYC9CgE','Uga0IYC9CgE'],
+['Vlog','Lifestyle Vlog','Watch','https://youtu.be/rvB8UdaV0JI','rvB8UdaV0JI'],
 ['Short','YouTube Short','Watch','https://youtube.com/shorts/AgnwgJnt1kA','AgnwgJnt1kA'],
 ['AI · Talking face','Talking Face 01','Watch','https://www.instagram.com/reel/Db2-ew0lal8/'],
 ['AI · Talking face','Talking Face 02','Watch','https://www.instagram.com/reel/DaPdHres5c6/'],
@@ -322,7 +324,7 @@ const W=[
 W.forEach(([c,t,l,u,id],i)=>{const a=document.createElement('a');a.className='card rv';a.href=u;a.target='_blank';a.rel='noopener';a.style.setProperty('--d',(i%3)*90+'ms');a.style.setProperty('--i',i);
  const rid=id?'':u.split('/reel/')[1].replace('/','');id?a.dataset.yt=id:a.dataset.ig=rid;
  a.innerHTML=`<div class="th">${id?'<img alt="'+t+'" loading="lazy">':'<div class="ig">REEL</div><img class="tm" alt="'+t+'" src="'+(TH[rid]||'thumbs/'+rid+'.jpg')+'" onerror="this.remove()">'}<span class="pl"></span><span class="gl"></span></div><div class="cm"><div><div class="tg">${c}</div><h3>${t}</h3></div><span class="go">${l} ↗</span></div>`;
- if(id)yt(id,a.querySelector('img'));(i<3?$('#gl'):$('#gs')).appendChild(a)});
+ if(id)yt(id,a.querySelector('img'));(i<4?$('#gl'):$('#gs')).appendChild(a)});
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1,rootMargin:'0px 0px -6% 0px'});
 $$('.rv').forEach(el=>io.observe(el));
